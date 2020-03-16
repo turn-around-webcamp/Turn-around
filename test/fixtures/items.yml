@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  image: MyString
+  status: false
+  non_tax_price: 1
+  category_id: 1
+
+two:
+  text: MyText
+  image: MyString
+  status: false
+  non_tax_price: 1
+  category_id: 1
