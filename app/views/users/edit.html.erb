@@ -51,5 +51,4 @@
 
 <div><%= f.submit "編集内容を保存する" %></div>
 <% end %>
-<div><%= link_to "退会する", _path %>
-    <%# パスがわからない %>
+<div><%= link_to "退会する", user_path(@user), method: :delete %>

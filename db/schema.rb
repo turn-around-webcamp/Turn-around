@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_080940) do
+ActiveRecord::Schema.define(version: 2020_03_17_093525) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "total_volume"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2020_03_17_080940) do
     t.string "address"
     t.string "postal_code"
     t.string "tel"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
