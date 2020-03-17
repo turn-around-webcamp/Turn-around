@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2020_03_16_102631) do
 
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "total_volume"
+    t.integer "member_id"
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-
-ActiveRecord::Schema.define(version: 2020_03_16_032041) do
+  create_table "items", force: :cascade do |t|
+    t.text "text"
+    t.string "image"
+    t.boolean "status"
+    t.integer "non_tax_price"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
