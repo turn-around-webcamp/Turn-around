@@ -1,2 +1,42 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2>マイページ</h2>
+<tr>
+    <th>登録情報</th>
+    <th><% link_to '編集する', edit_user_path(@user) %></th>
+    <th><% link_to 'パスワードを変更する', edit_user_path(@user) %></th>
+    <%# パスワード変更先 %>
+</tr>
+<tr>
+    <th>氏名</th>
+    <th><%= @user.last_name_japanese %><%= @user.first_name_japanese %></th>
+</tr>
+<tr>
+    <th>カナ</th>
+    <th><%= @user.last_name_katakana %><%= @user.first_name_katakana %></th>
+</tr>
+<tr>
+    <th>郵便番号</th>
+    <th><%= @user.postal_code %></th>
+</tr>
+<tr>
+    <th>住所</th>
+    <th><%= @user.address %></th>
+</tr>
+<tr>
+    <th>電話番号</th>
+    <th><%= @user.tel %></th>
+</tr>
+<tr>
+    <th>メールアドレス</th>
+    <th><%= @user.mail %></th>
+</tr>
+<%# 氏名カナ郵便番号住所電話番号メールアドレス %>
+<tr>
+    <th>配送先</th>
+    <th><%= link_to '一覧を見る', delivery_addresses_path %></th>
+    <%# ログインユーザーの配送先のパスがわからない %>
+</tr>
+<tr>
+    <th>注文履歴</th>
+    <th><%= link_to '一覧を見る', orders_path %></th>
+    <%# ログインユーザの注文履歴のパスがわからない %>
+</tr>
