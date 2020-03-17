@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Turnaround</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
+<body>
     <header class="navbar navbar-default">
+
       <div class="container">
         <div class="nav navbar-nav navbar-left">
           <span class="text-muted">LOGO</span>
         </div>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
-                 <li> <%= link_to "マイページ", class: "btn btn-default btn-block" %> </li>
+                 <li> <%= link_to "マイページ", user_path(current_user.id), class: "btn btn-default btn-block" %> </li>
                  <li> <%= link_to "商品一覧", class: "btn btn-default btn-block" %> </li>
                  <li> <%= link_to "カート", class: "btn btn-default btn-block" %> </li>
                  <li> <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-default btn-block" %> </li>
@@ -29,7 +31,9 @@
             </ul>
         </div>
       </div>
+
     </header>
     <%= yield %>
-  </body>
+</body>
+
 </html>

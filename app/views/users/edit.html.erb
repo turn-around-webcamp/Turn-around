@@ -1,0 +1,55 @@
+<h2>登録情報編集</h2>
+
+<%# フォーム %>
+<%= form_for(@user) do |f| %>
+<tr>
+    <th>名前</th>
+    <th>(性)</th>
+    <th>
+        <%= f.text_field :last_name_japanese %>
+    </th>
+    <th>(名)</th>
+    <th>
+        <%= f.text_field :first_name_japanese %>
+    </th>
+</tr>
+<tr>
+    <th>フリガナ</th>
+    <th>(セイ)</th>
+    <th>
+        <%= f.text_field :last_name_katakana %>
+    </th>
+    <th>(メイ)</th>
+    <th>
+        <%= f.text_field :first_name_katakana %>
+    </th>
+</tr>
+<tr>
+    <th>メールアドレス</th>
+    <th>
+        <%= f.text_field :mail %>
+    </th>
+</tr>
+<tr>
+    <th>郵便番号</th>
+    <th>
+        <%= f.text_field :postal_code %>
+    </th>
+</tr>
+<tr>
+    <th>住所</th>
+    <th>
+        <%= f.text_field :address %>
+    </th>
+</tr>
+<tr>
+    <th>電話番号(ハイフンなし)</th>
+    <th>
+        <%= f.text_field :tel %>
+    </th>
+</tr>
+
+<div><%= f.submit "編集内容を保存する" %></div>
+<% end %>
+<div><%= link_to "退会する", _path %>
+    <%# パスがわからない %>
