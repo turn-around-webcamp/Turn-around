@@ -1,8 +1,8 @@
 <h2>マイページ</h2>
 <tr>
     <th>登録情報</th>
-    <th><% link_to '編集する', edit_user_path(@user) %></th>
-    <th><% link_to 'パスワードを変更する', edit_user_path(@user) %></th>
+    <th><%= link_to '編集する', edit_user_path(@user) %></th>
+    <th><%= link_to 'パスワードを変更する', edit_user_path(@user) %></th>
     <%# パスワード変更先 %>
 </tr>
 <tr>
@@ -27,16 +27,6 @@
 </tr>
 <tr>
     <th>メールアドレス</th>
-    <th><%= @user.mail %></th>
+    <th><%= @user.email %></th>
 </tr>
 <%# 氏名カナ郵便番号住所電話番号メールアドレス %>
-<tr>
-    <th>配送先</th>
-    <th><%= link_to '一覧を見る', delivery_addresses_path %></th>
-    <%# ログインユーザーの配送先のパスがわからない %>
-</tr>
-<tr>
-    <th>注文履歴</th>
-    <th><%= link_to '一覧を見る', orders_path %></th>
-    <%# ログインユーザの注文履歴のパスがわからない %>
-</tr>
