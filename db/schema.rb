@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_03_18_030127) do
 
+
   create_table "cart_items", force: :cascade do |t|
     t.integer "total_volume"
     t.integer "user_id"
