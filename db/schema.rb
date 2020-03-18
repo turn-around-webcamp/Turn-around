@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_03_17_093525) do
-
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "total_volume"
