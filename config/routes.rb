@@ -9,6 +9,6 @@ get 'users/:id/leave' => 'users#leave'
   resources :items,only: [:show,:index]
   resources :cart_items,only: [:index,:create,:update,:destroy]
   delete 'cart_items' => 'cart_items#destroy_all'
-  resources :orders, only: [:show,:index]
+  resources :orders, only: [:show,:index,:new]
 
 end
