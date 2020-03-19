@@ -13,4 +13,9 @@ class OrdersController < ApplicationController
   def confirm
   	 @order = Order.new
   end
+
+  def create
+	    @order = Order.new
+		redirect_to action: :finish
+  end
 end

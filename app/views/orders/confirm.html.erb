@@ -22,4 +22,33 @@
         </tbody>
       </table>
   </div>
+
+  <div class="col-xs-5">
+      <table class="table table-hover table-inverse">
+        <tr class="">
+            <th class="td-id">送料</th>
+            <td class="td-name">金額</td>
+        </tr>
+        <tr class="">
+            <th class="td-id">商品合計</th>
+            <td class="td-name">商品合計金額</td>
+        </tr>
+        <tr class="">
+            <th class="td-id">ご請求額</th>
+            <td class="td-name">請求金額</td>
+        </tr>
+      </table>
+  </div>
+
+  <div class="field">
+      <%= f.label :支払い方法 %>
+  </div>
+
+  <div class="field">
+      <%= f.label :お届け先 %>
+  </div>
+
+  <div class="btn-wrapper">
+     <%= link_to '購入を確定する', finish_orders_path, class: "btn btn-success " %>
+  </div>
 </div>
