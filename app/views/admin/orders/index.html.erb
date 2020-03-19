@@ -4,23 +4,21 @@
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
-          <th>注文日</th>
-          <th>配送先</th>
-          <th>注文商品</th>
-          <th>支払金額</th>
-          <th>ステータス</th>
-          <th>注文詳細</th>
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
         </tr>
       </thead>
       <tbody>
+        <% #@orders.each do |order| %>
         <tr>
-          <td>注文日（内容）</td>
-          <td>配送先（内容）</td>
-          <td>注文商品（内容）</td>
-          <td>支払金額（内容）</td>
-          <td>ステータス（内容）</td>
-          <td>表示する<!--注文詳細画面に遷移するボタン--></td>
+          <td>購入日時（内容）<!--会員userの注文orderの購入日時created_at　リンクで詳細画面に遷移する--></td>
+          <td><%#= 購入者の名前 %></td>
+          <td><%#= User.order.count %></td>
+          <td><%#= order.status %></td>
         </tr>
+        <%# end %>
       </tbody>
     </table>
   </div>
