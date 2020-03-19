@@ -15,7 +15,11 @@ class OrdersController < ApplicationController
   end
 
   def create
-	    @order = Order.new
-		redirect_to action: :finish
+	  @order = Order.new
+	  redirect_to action: :finish
   end
+
+  def finish
+  end
+  
 end
