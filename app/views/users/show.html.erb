@@ -29,4 +29,16 @@
     <th>メールアドレス</th>
     <th><%= @user.email %></th>
 </tr>
-<%# 氏名カナ郵便番号住所電話番号メールアドレス %>
+
+<tr>
+    <th>配送先</th>
+    <th>
+        <%= link_to "一覧をみる", delivery_addresses_path %>
+    </th>
+</tr>
+<%# <tr>
+    <th>注文履歴</th>
+    <th>
+        <%= link_to "詳細を見る",  %>
+</th>
+</tr>
