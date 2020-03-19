@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :admins, controllers: {
-  sessions: 'admins/sessions'
+  devise_for :admin, controllers: {
+  sessions: 'admin/sessions'
 }
+  namespace :admin do#↓admin/~ のルートはこの中に作成
+    root 'homes#top'
+    resources :orders, only:[:index,:show,:update]
+  end#↑admin/~ のルートはこの中に作成
+
 get 'users/:id/leave' => 'users#leave'
 
   devise_for :users
