@@ -8,10 +8,6 @@ class DeliveryAddressesController < ApplicationController
         # ※注意※Delivery_address.allと書かない。RoadErrorになる。
     end
 
-    def show
-
-    end
-
     def create
         @deliver = DeliveryAddress.new(delivery_address_params)
         # ストロングパラメータも同時に定義してあげる事。NameErrorになる。
