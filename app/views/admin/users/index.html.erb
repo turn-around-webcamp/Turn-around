@@ -1,0 +1,21 @@
+<table class="table table-hover table-inverse">
+    <thead>
+        <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+        </tr>
+    </thead>
+    <% @users.each do |user| %>
+    <tbody>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.first_name_japanese %><%= user.last_name_japanese %></td>
+            <td><%= user.email %></td>
+            <%# <%= user.status %>
+            <%# ステータスカラム抜けのため一旦保留 %>
+        </tr>
+    </tbody>
+    <% end %>
+</table>
