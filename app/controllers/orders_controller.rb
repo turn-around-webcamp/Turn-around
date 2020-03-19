@@ -10,4 +10,7 @@ class OrdersController < ApplicationController
   def show
     #@order = Order.find(params[:id])
   end
+  def confirm
+  	 @order = Order.new
+  end
 end
