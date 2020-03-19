@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2020_03_19_021833) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "total_volume"
-    t.integer "user_id"
-    t.integer "item_id"
+    t.integer "total_volume", null: false
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,19 +37,19 @@ ActiveRecord::Schema.define(version: 2020_03_19_021833) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "name_address"
-    t.integer "address"
-    t.integer "postal_code"
+    t.string "address"
+    t.string "postal_code"
   end
 
   create_table "items", force: :cascade do |t|
-    t.text "text"
-    t.string "image"
-    t.boolean "status"
-    t.integer "non_tax_price"
-    t.integer "category_id"
+    t.string "name", null: false
+    t.text "text", null: false
+    t.string "image", null: false
+    t.boolean "status", null: false
+    t.integer "non_tax_price", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
   end
 
   create_table "orders", force: :cascade do |t|
