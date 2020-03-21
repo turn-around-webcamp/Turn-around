@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     resources :orders, only:[:index,:show,:update]
     resources :users, only:[:index,:show,:edit,:update]
+    resources :categories, only: [:edit, :create, :index, :update]
   end#↑admin/~ のルートはこの中に作成
 
 get 'users/:id/leave' => 'users#leave'
