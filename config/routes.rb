@@ -20,7 +20,7 @@ get 'users/:id/leave' => 'users#leave'
   delete 'cart_items' => 'cart_items#destroy_all'
   resources :orders, only: [:show,:index, :new, :create] do
   	   collection do
-  	      get 'confirm'
+  	      post 'confirm'
   	      get 'finish'
   	   end
   end
