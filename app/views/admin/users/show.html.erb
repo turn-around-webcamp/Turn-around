@@ -1,1 +1,42 @@
-show
+<h2>会員詳細画面</h2>
+<table>
+    <tr>
+        <th>顧客ID</th>
+        <th><%= @user.id %></th>
+        <th><%# 会員ステータスを表示する %></th>
+    </tr>
+    <tr>
+        <th>氏名</th>
+        <th><%= @user.full_name_japanese %></th>
+    </tr>
+    <tr>
+        <th>カナ</th>
+        <th><%= @user.full_name_katakana %></th>
+    </tr>
+    <tr>
+        <th>郵便番号</th>
+        <th><%= @user.postal_code %></th>
+    </tr>
+    <tr>
+        <th>住所</th>
+        <th><%= @user.address %></th>
+    </tr>
+    <tr>
+        <th>電話番号</th>
+        <th><%= @user.tel %></th>
+    </tr>
+    <tr>
+        <th>メールアドレス</th>
+        <th><%= @user.email %></th>
+    </tr>
+
+    <tr>
+        <th>
+            <%= link_to "編集する", edit_admin_user_path(@user), class: "btn btn-primary" %>
+        </th>
+        <th>
+            <%= link_to "注文履歴一覧をみる", admin_orders_path, class: "btn btn-primary" %>
+            <%# この人の注文履歴一覧ではなく、購入者の名前がバラバラ（全体の）注文一覧画面へ遷移 %>
+        </th>
+    </tr>
+</table>
