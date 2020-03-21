@@ -9,3 +9,18 @@ Admin.create!(
    email: 'admin@admin',
    password: 'adminadmin',
 )#管理者ログインの初期設定
+
+Category.create!(
+  name: 'ケーキ',
+  status: 'false',
+  )
+
+Item.create!(
+    name: 'いちごのショートケーキ',
+    text: 'おいしいいちごのショートケーキです',
+    non_tax_price: 1000,
+    image: open("#{Rails.root}/db/fixtures/cake.jpg"),
+    status: 'false',
+    category_id: 1
+  )
+
