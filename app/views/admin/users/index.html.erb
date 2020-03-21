@@ -5,19 +5,13 @@
             <th>氏名</th>
             <th>メールアドレス</th>
             <th>ステータス</th>
-
-
-
-
-
-
         </tr>
     </thead>
     <% @users.each do |user| %>
     <tbody>
         <tr>
             <td><%= user.id %></td>
-            <td><%= user.first_name_japanese %><%= user.last_name_japanese %></td>
+            <td><%= link_to user.full_name_japanese, admin_user_path(user.id) %></td>
             <td><%= user.email %></td>
             <%# <%= user.status %>
             <%# ステータスカラム抜けのため一旦保留 %>

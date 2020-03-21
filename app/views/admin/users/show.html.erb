@@ -1,10 +1,9 @@
-<h2>マイページ</h2>
+<h2>会員詳細画面</h2>
 <table>
     <tr>
-        <th>登録情報</th>
-        <th><%= link_to '編集する', edit_user_path(@user), class: "btn btn-primary" %></th>
-        <th><%= link_to 'パスワードを変更する', edit_user_path(@user), class: "btn btn-primary" %></th>
-        <%# パスワードを変更するのリンク先はこのままで大丈夫だそうです %>
+        <th>顧客ID</th>
+        <th><%= @user.id %></th>
+        <th><%# 会員ステータスを表示する %></th>
     </tr>
     <tr>
         <th>氏名</th>
@@ -32,15 +31,12 @@
     </tr>
 
     <tr>
-        <th>配送先</th>
         <th>
-            <%= link_to "一覧をみる", delivery_addresses_path, class: "btn btn-primary" %>
+            <%= link_to "編集する", edit_admin_user_path(@user), class: "btn btn-primary" %>
         </th>
-    </tr>
-    <tr>
-        <th>注文履歴</th>
         <th>
-            <%= link_to "一覧をみる", orders_path, class: "btn btn-primary" %>
+            <%= link_to "注文履歴一覧をみる", admin_orders_path, class: "btn btn-primary" %>
+            <%# この人の注文履歴一覧ではなく、購入者の名前がバラバラ（全体の）注文一覧画面へ遷移 %>
         </th>
     </tr>
 </table>
