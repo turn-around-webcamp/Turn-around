@@ -1,54 +1,56 @@
 <h3>注文情報確認</h3>
 
 <div class="row">
-  <div class="col-xs-7">
-      <table class="table table-hover table-inverse">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>単価（税込）</th>
-            <th>個数</th>
-            <th>小計</th>
-          </tr>
-        </thead>
+  <%= form_for @order do |f| %>
+      <div class="col-xs-7">
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th>商品</th>
+                <th>単価（税込）</th>
+                <th>個数</th>
+                <th>小計</th>
+              </tr>
+            </thead>
 
-        <tbody>
-          <tr>
-            <td>画像 商品名</td>
-            <td>単価（税込）金額</td>
-            <td>購入した数量</td>
-            <td>小計　金額</td>
-          </tr>
-        </tbody>
-      </table>
-  </div>
+            <tbody>
+              <tr>
+                <td>画像 商品名</td>
+                <td>単価（税込）金額</td>
+                <td>購入した数量</td>
+                <td>小計　金額</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
 
-  <div class="col-xs-5">
-      <table class="table table-hover table-inverse">
-        <tr class="">
-            <th class="td-id">送料</th>
-            <td class="td-name">金額</td>
-        </tr>
-        <tr class="">
-            <th class="td-id">商品合計</th>
-            <td class="td-name">商品合計金額</td>
-        </tr>
-        <tr class="">
-            <th class="td-id">ご請求額</th>
-            <td class="td-name">請求金額</td>
-        </tr>
-      </table>
-  </div>
+      <div class="col-xs-5">
+          <table class="table table-hover table-inverse">
+            <tr class="">
+                <th class="td-id">送料</th>
+                <td class="td-name">金額</td>
+            </tr>
+            <tr class="">
+                <th class="td-id">商品合計</th>
+                <td class="td-name">商品合計金額</td>
+            </tr>
+            <tr class="">
+                <th class="td-id">ご請求額</th>
+                <td class="td-name">請求金額</td>
+            </tr>
+          </table>
+      </div>
 
-  <div class="field">
-      <%= f.label :支払い方法 %>
-  </div>
+      <div class="field">
+          <%= f.label :支払い方法 %>
+      </div>
 
-  <div class="field">
-      <%= f.label :お届け先 %>
-  </div>
+      <div class="field">
+          <%= f.label :お届け先 %>
+      </div>
 
-  <div class="btn-wrapper">
-     <%= link_to '購入を確定する', finish_orders_path, class: "btn btn-success " %>
-  </div>
+      <div class="btn-wrapper">
+         <%= link_to '購入を確定する', finish_orders_path, class: "btn btn-success " %>
+      </div>
+  <% end %>
 </div>
