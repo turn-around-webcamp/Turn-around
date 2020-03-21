@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-xs-8">
 <h1>ショッピングカート</h1>
+<h1>カートを空にする</h1>
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
@@ -15,15 +16,19 @@
         <% @cart_items.each do |cart_item| %>
         <tr>
           <td>
-            <%= attachment_image_tag(item, :image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>  
-            <%= item.name %>
+            <%#= attachment_image_tag(cart_item.item, :image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
+            <%= cart_item.item.name %>
           </td>
-          <td>値段</td>
-          <td>数量</td>
-          <td>小計</td>
-          <td>削除ボタン</td>
+          <td><%= cart_item.item.post_tax_price %></td>
+          <td><%= cart_item.total_volume %></td>
+          <td><%= cart_item.item.post_tax_price*cart_item.total_volume %></td>
+          <td><%= link_to "削除する", cart_items_path(current_user), method: :delete %></td>
           <% end %>
       </tbody>
     </table>
+    <p>買い物を続ける</p>
+    <p>合計金額</p>
+    <p>合計金額（内容）</p>
+    <h1>情報入力に進む</h1>
   </div>
 </div>
