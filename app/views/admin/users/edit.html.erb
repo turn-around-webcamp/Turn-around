@@ -1,0 +1,61 @@
+<h2>会員編集画面</h2>
+<table>
+    <%# フォーム %>
+    <%= form_for @user,url: admin_user_path do |f| %>
+    <%# 飛ばしたい先のurl（今回は会員詳細ページ）を指定する %>
+    <tr>
+        <th>氏名</th>
+        <th>
+            <%= f.text_field :last_name_japanese %>
+        </th>
+        <th>
+            <%= f.text_field :first_name_japanese %>
+        </th>
+    </tr>
+    <tr>
+        <th>フリガナ</th>
+        <th>
+            <%= f.text_field :last_name_katakana %>
+        </th>
+        <th>
+            <%= f.text_field :first_name_katakana %>
+        </th>
+    </tr>
+    <tr>
+        <th>郵便番号</th>
+        <th>
+            <%= f.text_field :postal_code %>
+        </th>
+    </tr>
+    <tr>
+        <th>住所</th>
+        <th>
+            <%= f.text_field :address %>
+        </th>
+    </tr>
+    <tr>
+        <%# ハイフンあり %>
+        <th>電話番号</th>
+        <th>
+            <%= f.text_field :tel %>
+        </th>
+    </tr>
+    <tr>
+        <th>メールアドレス</th>
+        <th>
+            <%= f.text_field :email %>
+        </th>
+    </tr>
+    <tr>
+        <th>会員ステータス</th>
+        <th>
+            <label><%= f.radio_button :status, :true %>有効</label>
+            <%= f.radio_button :status, :false %>退会済み
+        </th>
+    </tr>
+
+    <tr>
+        <th><%= f.submit "変更を保存する", class: "btn btn-primary" %></th>
+        <% end %>
+    </tr>
+</table>
