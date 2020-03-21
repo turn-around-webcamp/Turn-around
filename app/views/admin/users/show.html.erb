@@ -3,7 +3,13 @@
     <tr>
         <th>顧客ID</th>
         <th><%= @user.id %></th>
-        <th><%# 会員ステータスを表示する %></th>
+        <th>
+            <% if @user.status? %>
+            有効
+            <% else %>
+            解約済み
+            <% end %>
+        </th>
     </tr>
     <tr>
         <th>氏名</th>

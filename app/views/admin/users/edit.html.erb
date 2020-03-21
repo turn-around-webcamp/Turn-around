@@ -2,6 +2,7 @@
 <table>
     <%# フォーム %>
     <%= form_for @user,url: admin_user_path do |f| %>
+    <%# 飛ばしたい先のurl（今回は会員詳細ページ）を指定する %>
     <tr>
         <th>氏名</th>
         <th>
@@ -48,7 +49,8 @@
     <tr>
         <th>会員ステータス</th>
         <th>
-            <%= f.text_field :email %>
+            <label><%= f.radio_button :status, :true %>有効</label>
+            <%= f.radio_button :status, :false %>退会済み
         </th>
     </tr>
 
