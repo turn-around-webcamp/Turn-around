@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_075311) do
     t.string "postal_code"
     t.string "tel"
     t.datetime "deleted_at"
+    t.boolean "status", default: true
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
