@@ -10,6 +10,18 @@ Admin.create!(
    password: 'adminadmin',
 )#管理者ログインの初期設定
 
+User.create!(
+  last_name_japanese: '検証',
+  first_name_japanese: '太郎',
+  last_name_katakana: 'ケンショウ',
+  first_name_katakana: 'タロウ',
+  address: 'tttttt',
+  postal_code: '1111111',
+  tel: '11111111111',
+  email: 'test@test',
+  password: 'testtest',
+  )
+
 Category.create!(
   name: 'ケーキ',
   status: 'false',
@@ -24,3 +36,8 @@ Item.create!(
     category_id: 1
   )
 
+CartItem.create!(
+    total_volume: 2,
+    user_id: 1,
+    item_id: 1,
+  )
