@@ -13,7 +13,8 @@
             <td><%= user.id %></td>
             <td><%= link_to user.full_name_japanese, admin_user_path(user.id) %></td>
             <td><%= user.email %></td>
-            <td> <% if user.status? %>
+            <td> <% if user.status == true %>
+                <%# trueだったら有効を表示したい %>
                 有効
                 <% else %>
                 解約済み
