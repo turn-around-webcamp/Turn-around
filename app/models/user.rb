@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_paranoid
+
   has_many :delivery_addresses
   has_many :cart_items
   devise :database_authenticatable, :registerable,

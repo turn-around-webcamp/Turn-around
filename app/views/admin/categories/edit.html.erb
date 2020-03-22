@@ -2,7 +2,7 @@
 	<div class="row">
 
 	    <h3>ジャンル編集画面</h3>
-        <%= form_with model: @categories do |f| %>
+        <%= form_with model: @category, url: admin_category_path(@category), local: true do |f| %>
 			<div class="field">
 			    <%= f.label :ジャンル %>
 			    <%= f.text_field :name %>
