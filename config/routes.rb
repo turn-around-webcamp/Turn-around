@@ -10,12 +10,16 @@ Rails.application.routes.draw do
     resources :categories, only: [:edit, :create, :index, :update]
   end#↑admin/~ のルートはこの中に作成
 
-get 'users/:id/leave' => 'users#leave'
+# get 'users/:id/leave' => 'users#leave'
 
   devise_for :users
    root 'homes#top'
   resources :delivery_addresses, only:[:new,:index,:edit,:create,:update,:destroy]
-  resources :users, only:[:show,:edit,:update,:destroy]
+  resources :users, only:[:show,:edit,:update,:destroy] do
+    member do
+      get 'leave'
+    end
+  end
   resources :items,only: [:show,:index]
   resources :cart_items,only: [:index,:create,:update,:destroy]
   delete 'cart_items' => 'cart_items#destroy_all'

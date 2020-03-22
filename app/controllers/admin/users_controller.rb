@@ -3,7 +3,12 @@ class Admin::UsersController < ApplicationController
     # 後ほど追加する（管理者権限）
 
     def index
+        # 自身で退会したユーザーのステータスをindexに反映させたい。
+        # @user = User.find(params[:id])
+        # if @user.status == false
+        # @user.status = false
         @users = User.with_deleted
+        # end
     end
 
     def show

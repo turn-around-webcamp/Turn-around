@@ -52,6 +52,6 @@
     <tr>
         <th><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></th>
         <% end %>
-        <th><%= link_to "退会する", '/users/:id/leave' %></th>
+        <th><%= link_to "退会する", leave_user_path(@user) %></th>
     </tr>
 </table>
