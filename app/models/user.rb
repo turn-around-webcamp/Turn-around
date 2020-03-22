@@ -12,11 +12,9 @@ class User < ApplicationRecord
          end
   def total_price
     price = 0
-    puts 123
-    puts cart_items[0]
     self.cart_items.each do |cart|
       puts cart_items[0]
-      price += cart.item.post_tax_price
+      price += cart.item.post_tax_price*cart.total_volume
     end
     return price
   end

@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-xs-8">
 <h1>ショッピングカート</h1>
-<p><%= link_to "カートを空にする", cart_items_path, method: :delete %></p>
+<p><%= link_to "カートを空にする", 'cart_items/destroy_all', method: :delete %></p>
+
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
@@ -21,15 +22,15 @@
           </td>
           <td><%= cart_item.item.post_tax_price %></td>
 
-          <%= form_for(@cart_item) do |f| %>
-            <td><%= cart_item.total_volume %></td>
-            <div class="actions">
+          <%= form_with model: cart_item, local: true do |f| %> <!--カートの商品の数量変更機能-->
+            <td><%= f.text_field :total_volume %></td>
+            <div class="actions cart_edit">
               <%= f.submit '変更'%>
             </div>
           <% end %>
 
           <td><%= cart_item.item.post_tax_price*cart_item.total_volume %></td>
-          <td><%= link_to "削除する", cart_items_path, method: :delete %></td>
+          <td><%= link_to "削除する", 'cart_items/destroy', method: :delete %></td>
           <% end %>
       </tbody>
     </table>
