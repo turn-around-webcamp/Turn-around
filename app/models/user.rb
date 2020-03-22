@@ -11,14 +11,12 @@ class User < ApplicationRecord
          def full_name_katakana
           last_name_katakana+first_name_katakana
          end
-          def total_price
-            price = 0
-            puts 123
-            puts cart_items[0]
-            self.cart_items.each do |cart|
-              puts cart_items[0]
-              price += cart.item.post_tax_price
-            end
-            return price
-          end
+  def total_price
+    price = 0
+    self.cart_items.each do |cart|
+      puts cart_items[0]
+      price += cart.item.post_tax_price*cart.total_volume
+    end
+    return price
+  end
 end

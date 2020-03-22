@@ -18,7 +18,7 @@ User.create!(
   address: 'tttttt',
   postal_code: '1111111',
   tel: '11111111111',
-  email: 'test@test',
+  email: 'test@test2',
   password: 'testtest',
   )
 
@@ -31,9 +31,8 @@ Item.create!(
     name: 'いちごのショートケーキ',
     text: 'おいしいいちごのショートケーキです',
     non_tax_price: 1000,
-    image: open("#{Rails.root}/db/fixtures/cake.jpg"),
     status: 'false',
-    category_id: 1
+    category_id: 1,
   )
 
 CartItem.create!(
