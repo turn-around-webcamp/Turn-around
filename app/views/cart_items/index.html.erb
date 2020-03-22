@@ -20,7 +20,14 @@
             <%= cart_item.item.name %>
           </td>
           <td><%= cart_item.item.post_tax_price %></td>
-          <td><%= cart_item.total_volume %></td>
+
+          <%= form_for(@cart_item) do |f| %>
+            <td><%= cart_item.total_volume %></td>
+            <div class="actions">
+              <%= f.submit '変更'%>
+            </div>
+          <% end %>
+
           <td><%= cart_item.item.post_tax_price*cart_item.total_volume %></td>
           <td><%= link_to "削除する", cart_items_path, method: :delete %></td>
           <% end %>
@@ -29,6 +36,6 @@
     <p><%= link_to "買い物を続ける", items_path %></p>
     <p>合計金額</p>
     <p><%= current_user.total_price %></p>
-    <h1><%= link_to "情報入力に進む", new_order_path%></h1>
+    <h1><%= link_to "情報入力に進む", new_order_path, method: :post %></h1>
   </div>
 </div>
