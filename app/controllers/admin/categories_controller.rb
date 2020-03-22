@@ -19,10 +19,17 @@ class Admin::CategoriesController < ApplicationController
 
 	def update
 		@category = Category.find(params[:id])
-		if @category.update(category_params)
-		   redirect_to admin_categories_path
+		if params[:category][:status] == "false"
+		   @category.status = false
+			if @category.update(category_params)
+			   redirect_to admin_categories_path
+			else
+			  @category = Category.find(params[:id])
+			  render :index
+			end
 		else
-		   render :index
+			@category.update(category_params)
+			redirect_to admin_categories_path
 		end
 	end
 
