@@ -8,8 +8,22 @@
     <h1>画像</h1>
   </div>
   <div class="col-xs-4">
-    <h1>商品名</h1>
-    <p><% @item.text %><p>
-    <h2>値段(税込)<h2>
+    <h1><%= @item.name %></h1>
+    <p><%= @item.text %><p>
+    <h2>¥<%= @item.post_tax_price %><h2>
   </div>
+  <div class="col-xs-2 col-xs-offset-7">
+
+    <p>個数選択<%= form_for @cart_item, url:"/cart_items/#{@cart_item_id}", method: :post do |f| %>
+      <%=  f.label :total_volume%>
+    <%= f.number_field :total_volume, value:1 %>
+      <%#= f.select :total_volume, [1,2,3,4,5,6,7,8,9], options_for_select(@cart_item, {prompt: @cart_item.total_volume.to_i} ) %>
+    </p>
+    
+
+  </div>
+  <div class="col-xs-2">
+    <p><%= f.submit 'カートに入れる', class: "btn btn-success btn-new-register btn-lg" %></p>
+  </div>
+  <% end %>
 </div>
