@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
     # 後ほど追加する（管理者権限）
 
     def index
-        @users = User.all
+        @users = User.with_deleted
     end
 
     def show
@@ -16,13 +16,24 @@ class Admin::UsersController < ApplicationController
 
 
     def update
-        # binding.pry
+
         @user = User.find(params[:id])
-        if  @user.update(user_params)
-            redirect_to admin_users_path
+        if params[:user][:status] == false
+            # params[:status]だと中身がnilと判明(binding.pryを用いた)
+            # ユーザーテーブルの中のステータスカラムを作っているから上記の書き方になる。（入れ子になっている）
+            @user.status = false
+            # ステータスにfalseを入れる
+            if  @user.update(user_params)
+                @user.destroy
+                # destroyしないと論理削除にならない
+                redirect_to admin_users_path
+            else
+                @user = User.find(params[:id])
+                render "edit"
+            end
         else
-            @user = User.find(params[:id])
-            render "edit"
+            @user.update(user_params)
+            redirect_to admin_users_path
         end
     end
 
