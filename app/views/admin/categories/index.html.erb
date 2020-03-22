@@ -2,7 +2,7 @@
 	<div class="row">
 
 	    <h3>ジャンル追加・一覧画面</h3>
-        <%= form_with model: @categories do |f| %>
+        <%= form_with to_model: @categories, url: admin_categories_path(@category), local: true do |f| %>
 			<div class="field">
 			    <%= f.label :ジャンル %>
 			    <%= f.text_field :name %>
@@ -26,7 +26,7 @@
 					    <tr>
 					        <td><%= category.name %></td>
 					        <td><%= category.status %></td>
-					        <td><%= link_to "編集する", edit_admin_category_path(category), class: "btn-sm btn-success edit_admin_category_#{category.id}" %></td>
+					        <td><%= link_to "編集する", edit_admin_category_path(category), class: "btn btn-primary btn-sm edit_admin_category_#{category.id}" %></td>
 					        <% end %>
 					    </tr>
 					</tbody>
