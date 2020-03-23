@@ -13,14 +13,16 @@
             <tbody>
                 <% @orders.each do |order| %>
                 <tr>
-                    <td><%= order.user.created_at %>
+                    <td><%= link_to order.created_at, admin_order_path(order) %>
                         <!--会員userの注文orderの購入日時created_at　リンクで詳細画面に遷移する-->
                     </td>
-                    <td><%#= 購入者の名前 %></td>
-                    <td><%#= User.order.count %></td>
-                    <td><%#= order.status %></td>
+                    <td><%= order.user.full_name_japanese %></td>
+
+                    <td></td>
+                    <td><%= order.status %></td>
+                    <%# 何も定義していないのに0で入金待ちのステータスがでる %>
                 </tr>
-                <%# end %>
+                <% end %>
             </tbody>
         </table>
     </div>

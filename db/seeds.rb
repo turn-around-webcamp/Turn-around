@@ -41,5 +41,14 @@ CartItem.create!(
     item_id: 1,
   )
 Order.create!(
-  
+  created_at: 20200323,
+  user_id: 1,
+  status: 0,
+  updated_at: 20200323,
+  postage: 800,
+  charge: 3000,
+  payment_method: 0,
+  name_address: '宛名',
+  address: '住所',
+  postal_code: '111111',
 )
