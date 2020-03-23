@@ -1,14 +1,15 @@
 <div class="row">
 <%= render 'category'  %>
-
-  <div class="col-xs-2">
-    <p>商品一覧（全   件）</p>
+  <div class="col-xs-9 col-xs-offset-1">
+    <p><%= "全#{@items.count}件" %></p>
     <% @items.each do |item| %>
-    <p>画像</p>
-    <!--商品名-->
-    <p><%= link_to item.name, item, class: "item_#{item.id}" %></p>
-    <!--税抜き価格-->
-    <p>¥<%= item.non_tax_price %></p>
+        <div class="image item-image col-xs-2">
+        <%= attachment_image_tag item, :image, :size => '250x250' %>
+            <div class="caption">
+            <p><%= link_to item.name, item, class: "item_#{item.id}" %></p>
+            <p><%= "¥#{item.non_tax_price}" %></p>
+            </div>
+        </div>
     <% end %>
   </div>
 </div>
