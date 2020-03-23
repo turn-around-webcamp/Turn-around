@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
   end#↑admin/~ のルートはこの中に作成
 
-# get 'users/:id/leave' => 'users#leave'
-
   devise_for :users
    root 'homes#top'
   resources :delivery_addresses, only:[:new,:index,:edit,:create,:update,:destroy]
@@ -27,10 +25,13 @@ Rails.application.routes.draw do
   resources :cart_items,only: [:index]
 
   delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+
   resources :orders, only: [:show,:index, :new, :create] do
+    # order_itemも中に入る？postcommentのようなイメージ？
+    resources :order_item, only: [:create, :destroy]
   	   collection do
   	      post 'confirm'
   	      get 'finish'
-  	   end
+        end
   end
 end
