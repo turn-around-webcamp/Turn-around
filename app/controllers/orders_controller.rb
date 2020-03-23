@@ -14,21 +14,23 @@ class OrdersController < ApplicationController
   def confirm
   	 @order = Order.new(order_params)
     if params[:select_address] == "myaddress"
-       @order.neme_address = current_user.last_name_japanese+first_name_japanese
+       @order.postal_code = current_user.postal_code
+       @order.address = current_user.address
+       @order.name_address = current_user.last_name_japanese+first_name_japanese
     elsif params[:select_address] == "deliveryaddress"
-      address = current_user.delivery_addresses.find(params[:delivery_address][:id])
-      @order.neme_address = address.name_address
+       address = current_user.delivery_addresses.find(params[:delivery_address][:id])
+       @order.neme_address = address.neme_address
     elsif params[:select_address] == "newaddress"
-     
+       @order.valid?
+       @delivery = Delivery.new
+       render :new
     end
   end
 
   def create
 	   @order = Order.new(order_params)
+     @order.user_id = current_user.id
      @order.save
-
-     #form.hidden_field各３つ必要
-
 	   redirect_to action: :finish
   end
 

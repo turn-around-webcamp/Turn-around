@@ -1,7 +1,6 @@
 <h3>注文情報確認</h3>
 
 <div class="row">
-  <%= form_for @order do |f| %>
       <div class="col-xs-8">
           <table class="table table-hover table-inverse">
             <thead>
@@ -13,14 +12,16 @@
               </tr>
             </thead>
 
+            <% current_user.cart_items.each do |cart_item| %>
             <tbody>
               <tr>
-                <td>画像 商品名</td>
-                <td>金額</td>
-                <td>購入した数</td>
-                <td>金額</td>
+                <td><%= cart_item.item.name %></td>
+                <td><%= cart_item.item.post_tax_price %></td>
+                <td><%= cart_item.total_volume %></td>
+                <td><%= cart_item.item.post_tax_price*cart_item.total_volume %></td>
               </tr>
             </tbody>
+            <% end %>
           </table>
       </div>
 
@@ -28,30 +29,37 @@
           <table class="table table-hover table-inverse">
             <tr class="">
                 <th class="td-id">送料</th>
-                <td class="td-name">金額</td>
+                <td class="td-name"><%= @order.postage %></td>
             </tr>
             <tr class="">
                 <th class="td-id">商品合計</th>
-                <td class="td-name">金額</td>
+                <td class="td-name"></td>
             </tr>
             <tr class="">
                 <th class="td-id">請求金額</th>
-                <td class="td-name">金額</td>
+                <td class="td-name"><%= @order.charge %></td>
             </tr>
           </table>
       </div>
 
+  <%= form_for @order do |f| %>
       <div class="col-xs-4">
         <div class="field">
-            <%= f.label :支払い方法 %>
+            <%= f.label :支払い方法 %><%= @order.payment_method %>
         </div>
 
         <div class="field">
-            <%= f.label :お届け先 %>
+            <%= f.label :お届け先 %><%= @order.postal_code %><%= @order.address %><%= @order.name_address %>
         </div>
+        　
+          <%= f.hidden_field :postal_code, value: @order.postal_code %>
+          <%= f.hidden_field :charge, value: @order.charge %>
+          <%= f.hidden_field :address, value: @order.address %>
+          <%= f.hidden_field :neme_address, value: @order.name_address %>
+          <%= f.hidden_field :payment_method, value: @order.payment_method %>
 
-        <div class="btn-wrapper">
-           <%= link_to '購入を確定する', finish_orders_path, class: "btn btn-success " %>
+        <div class="actions">
+            <button class="btn btn-success" type="submit">購入を確定する</button>
         </div>
       </div>
   <% end %>
