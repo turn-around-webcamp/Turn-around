@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :orders, only:[:index,:show,:update]
     resources :users, only:[:index,:show,:edit,:update]
     resources :categories, only: [:edit, :create, :index, :update]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
   end#↑admin/~ のルートはこの中に作成
 
 # get 'users/:id/leave' => 'users#leave'
@@ -20,8 +21,11 @@ Rails.application.routes.draw do
       get 'leave'
     end
   end
-  resources :items,only: [:show,:index]
-  resources :cart_items,only: [:index,:create,:update,:destroy]
+  resources :items,only: [:show,:index] do
+    resources :cart_items,only: [:create,:update,:destroy]
+  end
+  resources :cart_items,only: [:index]
+
   delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
   resources :orders, only: [:show,:index, :new, :create] do
   	   collection do

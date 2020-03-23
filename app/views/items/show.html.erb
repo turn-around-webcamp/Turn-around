@@ -11,7 +11,7 @@
     <h2><%= @item.name %></h2>
     <p><%= @item.text %><p>
     <p>¥<%= @item.post_tax_price %></p>
-    <%= form_for(@cart_item, url: cart_items_path) do |f| %>
+    <%= form_for(@cart_item, url: item_cart_items_path(@item)) do |f| %>
       <%= f.select :total_volume,(1..10).to_a, {}, class: "form-contril item-show-form-control" %>
       <%= f.hidden_field :item_id, :value => @item.id %>
     <%= f.submit 'カートに入れる', class: "btn btn-success btn-new-register btn-lg" %>

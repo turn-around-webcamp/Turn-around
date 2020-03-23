@@ -19,20 +19,21 @@
         <% @cart_items.each do |cart_item| %>
         <tr>
           <td>
-            <%#= attachment_image_tag(cart_item.item, :image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
+            <%#= attachment_image_tag(item, :image, :fill, 50, 50,) %>
             <%= cart_item.item.name %>
           </td>
           <td><%= cart_item.item.post_tax_price %></td>
 
-          <%= form_with model: cart_item, local: true do |f| %> <!--カートの商品の数量変更機能-->
-            <td><%= f.text_field :total_volume %></td>
+          <%= form_with model: cart_item,url: item_cart_items_path(cart_item.item),  local: true do |f| %> <!--カートの商品の数量変更機能-->
+            <td><%= f.text_field :total_volume %>
             <div class="actions cart_edit">
               <%= f.submit '変更'%>
             </div>
+            </td>
           <% end %>
 
           <td><%= cart_item.item.post_tax_price*cart_item.total_volume %></td>
-          <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class:"btn btn-danger" %></td>
+          <td><%= link_to "削除する", item_cart_item_path(cart_item.item.id, cart_item.id), method: :delete, class:"btn btn-danger" %></td>
           <% end %>
       </tbody>
     </table>
