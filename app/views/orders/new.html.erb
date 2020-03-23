@@ -10,12 +10,13 @@
 
   <div class="field">
 	  	<%= f.label :お届け先 %><br>
-	  	<%= f.radio_button :neme_address, "ご自身の住所" %> ご自身の住所 </label><br>
+	  	<%= radio_button_tag :select_address, "myaddress",true %> ご自身の住所 </label><br>
         <%= @user.address %><%= @user.postal_code %><%= @user.last_name_japanese %><%= @user.first_name_japanese %><br>
-	  	<%= f.radio_button :neme_address, "登録済み住所から選択" %> 登録済み住所から選択 </label><br>
+        <%= radio_button_tag :select_address, "deliveryaddress",false %> 登録済み住所から選択 </label><br>
 	  	<%= collection_select(:delivery_address, :id, current_user.delivery_addresses, :id, 'full_address' ) %><br>
         
-	  	<%= f.radio_button :neme_address, "新しいお届け先" %> 新しいお届け先 </label><br>
+	  	
+	  	<%= radio_button_tag :select_address, "newaddress",false %> 新しいお届け先 </label><br>
 	  	郵便番号（ハイフンなし）<%= f.text_field :postal_code %><br>
 	  	住所 <%= f.text_field :address %><br>
 	  	<p>宛名 <%= f.text_field :neme_address %>
