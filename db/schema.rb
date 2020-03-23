@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_03_23_072121) do
     t.integer "item_id", null: false
     t.integer "status", null: false
     t.integer "price", null: false
+    t.integer "volume", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

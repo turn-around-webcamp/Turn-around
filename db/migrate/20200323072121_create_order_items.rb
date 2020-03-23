@@ -5,6 +5,7 @@ class CreateOrderItems < ActiveRecord::Migration[5.2]
       t.integer :item_id, null: false
       t.integer :status, null: false
       t.integer :price, null: false
+      t.integer :volume, null: false
 
       t.timestamps
     end

@@ -52,3 +52,12 @@ Order.create!(
   address: '住所',
   postal_code: '111111',
 )
+OrderItem.create!(
+  created_at: 20200323,
+  order_id: 1,
+  item_id: 1,
+  updated_at: 20200323,
+  status: 1,
+  price: 3000,
+  volume: 2,
+)
