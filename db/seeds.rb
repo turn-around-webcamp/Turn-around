@@ -40,3 +40,6 @@ CartItem.create!(
     user_id: 1,
     item_id: 1,
   )
+Order.create!(
+  
+)

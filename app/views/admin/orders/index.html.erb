@@ -1,25 +1,27 @@
 <h1>注文一覧画面</h1>
 <div class="row">
-  <div class="col-xs-10">
-    <table class="table table-hover table-inverse">
-      <thead>
-        <tr>
-          <th>購入日時</th>
-          <th>購入者</th>
-          <th>注文個数</th>
-          <th>注文ステータス</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% #@orders.each do |order| %>
-        <tr>
-          <td>購入日時（内容）<!--会員userの注文orderの購入日時created_at　リンクで詳細画面に遷移する--></td>
-          <td><%#= 購入者の名前 %></td>
-          <td><%#= User.order.count %></td>
-          <td><%#= order.status %></td>
-        </tr>
-        <%# end %>
-      </tbody>
-    </table>
-  </div>
+    <div class="col-xs-10">
+        <table class="table table-hover table-inverse">
+            <thead>
+                <tr>
+                    <th>購入日時</th>
+                    <th>購入者</th>
+                    <th>注文個数</th>
+                    <th>注文ステータス</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @orders.each do |order| %>
+                <tr>
+                    <td><%= order.user.created_at %>
+                        <!--会員userの注文orderの購入日時created_at　リンクで詳細画面に遷移する-->
+                    </td>
+                    <td><%#= 購入者の名前 %></td>
+                    <td><%#= User.order.count %></td>
+                    <td><%#= order.status %></td>
+                </tr>
+                <%# end %>
+            </tbody>
+        </table>
+    </div>
 </div>
