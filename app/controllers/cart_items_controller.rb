@@ -4,10 +4,11 @@ class CartItemsController < ApplicationController
   end
 
   def create
+    @item = Item.find(params[:item_id])
     @cart_item = current_user.cart_items.new(cart_item_params)
-   if @cart_item.save
+    @cart_item.item_id = @item.id
+    @cart_item.save
     redirect_to cart_items_path
-   end
   end
 
   def update

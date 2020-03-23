@@ -70,3 +70,4 @@ gem "refile-mini_magick"
 gem "paranoia"
 gem 'carrierwave'
 gem 'pry-rails'
+gem 'kaminari'
