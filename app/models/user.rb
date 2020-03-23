@@ -11,7 +11,7 @@ class User < ApplicationRecord
          def full_name_katakana
           last_name_katakana+first_name_katakana
          end
-  def total_price
+  def total_price #合計金額を定義している
     price = 0
     self.cart_items.each do |cart|
       puts cart_items[0]
