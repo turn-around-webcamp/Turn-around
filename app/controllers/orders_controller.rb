@@ -14,12 +14,10 @@ class OrdersController < ApplicationController
   def confirm
   	 @order = Order.new(order_params)
     if params[:select_address] == "myaddress"
-       @order.postal_code = current_user.postal_code
-       @order.address = current_user.address
        @order.name_address = current_user.last_name_japanese+first_name_japanese
     elsif params[:select_address] == "deliveryaddress"
        address = current_user.delivery_addresses.find(params[:delivery_address][:id])
-       @order.neme_address = address.neme_address
+       @order.name_address = address.name_address
     elsif params[:select_address] == "newaddress"
        @order.valid?
        @delivery = Delivery.new
@@ -39,7 +37,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-     params.require(:order).permit(:charge, :payment_method, :neme_address, :address, :postal_code)
+     params.require(:order).permit(:charge, :payment_method, :name_address, :address, :postal_code)
   end
 
   def delivery_params
