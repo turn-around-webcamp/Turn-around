@@ -20,8 +20,8 @@
           <td><%= f.collection_select :category_id, Category.all, :id,:name, include_blank: "--選択してください--" %></td>
         </tr>
         <tr>
-          <th><%= f.label :non_tax_prace ,"税抜き価格"%></th>
-          <td><%= f.text_field :non_tax_prace, class: "" %></td>
+          <th><%= f.label :non_tax_price ,"税抜き価格"%></th>
+          <td><%= f.text_field :non_tax_price, class: "" %></td>
         </tr>
         <tr>
           <th><%= f.label :status ,"販売ステータス"%></th>
