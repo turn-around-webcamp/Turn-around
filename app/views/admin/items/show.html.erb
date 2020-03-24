@@ -4,33 +4,37 @@
     <p>画像</p>
     <p>画像選択ボタン</p>
   </div>
-  <%= form_with model: @item, url: orders_path,  local: true do |f| %>
   <div class="col-xs-4">
     <table>
         <tr>
-          <th><%= f.label :name ,"商品名"%></th>
-          <td><%= f.text_field :name, class: "" %></td>
+          <th>商品名</th>
+          <td><%#= f.text_field :name, class: "" %></td>
         </tr>
         <tr>
-          <th><%= f.label :text ,"商品説明"%></th>
-          <td><%= f.text_area :text, class: "" %></td>
+          <th>商品説明</th>
+          <td><%#= f.text_area :text, class: "" %></td>
         </tr>
         <tr>
-          <th><%#= f.label : ,"ジャンル"%></th>
-          <td><%#=%></td>
+          <th>ジャンル</th>
+          <td><%= @item.category.name %></td>
         </tr>
         <tr>
-          <th><%= f.label :non_tax_prace ,"税抜き価格"%></th>
-          <td><%= f.text_field :name, class: "" %></td>
+          <th>税抜き価格</th>
+          <td><%#= f.text_field :name, class: "" %></td>
         </tr>
         <tr>
-          <th><%= f.label :status ,"販売ステータス"%></th>
-          <td><%#=%></td>
+          <th>販売ステータス</th>
+          <td>
+            <% if @item.status == true %>
+              販売停止
+            <% else %>
+              販売中
+            <% end %>
+          </td>
         </tr>
     </table>
   </div>
   <div class="col-xs-4">
-    <h1><%#= f.submit '変更を保存'%></h1>
+    <%= link_to "編集する" , edit_admin_item_path(@item.id) %>
   </div>
-  <% end %>
 </div>
