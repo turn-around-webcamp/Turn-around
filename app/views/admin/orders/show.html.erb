@@ -16,9 +16,14 @@
             </tr>
             <tr class="">
                 <th class="td-id">注文ステータス</th>
-                <td class="td-name"><%= @order.status %></td>
-                <%# 更新できるように %>
+                <%= form_with(model: @order,local: true, url: {action: 'update'}) do |form| %>
+                <td><%= form.select :status, [["入金待ち"],["入金確認"],["制作中"],["発送準備中"],["発送済み"]] %></td>
+                <div class="actions">
+                    <td> <button class="btn btn-info" type="submit">更新</button></td>
+                </div>
+                <% end %>
             </tr>
+
         </table>
     </div>
     <div class="col-xs-8">
@@ -26,7 +31,7 @@
             <thead>
                 <tr>
                     <th>商品名</th>
-                    <th>単価（税込）</th>
+                    <th>単価(税込)</th>
                     <th>数量</th>
                     <th>小計</th>
                     <th>制作ステータス</th>
@@ -35,11 +40,18 @@
             <% @orders.each do |order| %>
             <tbody>
                 <tr><% order.order_items.each do |order_item| %>
-                    <td></td>
+                    <td><%= order_item.item.name %></td>
+                    <td><%= order_item.price %></td>
+                    <td><%= order_item.volume %></td>
+                    <td><%= order_item.price.to_i * order_item.volume.to_i %></td>
+                    <%= form_with(model: @order_item,local: true, url: {action: 'update'}) do |form| %>
+                    <td><%= select(@status_content, :status_method, [["着手不可"],["制作待ち"],["制作中"],["制作完了"]])%></td>
+                    <div class="actions">
+                        <td> <button class="btn btn-info" type="submit">更新</button>
+                    </div>
+                    </td>
                     <% end %>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <% end %>
                 </tr>
             </tbody>
             <% end %>

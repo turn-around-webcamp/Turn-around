@@ -13,7 +13,7 @@
             <tbody>
                 <% @orders.each do |order| %>
                 <tr>
-                    <td><%= link_to order.created_at, admin_order_path(order) %>
+                    <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order) %>
                         <!--会員userの注文orderの購入日時created_at　リンクで詳細画面に遷移する-->
                     </td>
                     <td><%= order.user.full_name_japanese %></td>
@@ -29,31 +29,4 @@
 </div>
 
 
-<%# 商品情報のテーブル%>
-<table class="table table-hover table-inverse">
-    <thead>
-        <tr>
-            <th>会員ID</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
-        </tr>
-    </thead>
-    <% @users.each do |user| %>
-    <tbody>
-        <tr>
-            <td><%= user.id %></td>
-            <td><%= link_to user.full_name_japanese, admin_user_path(user.id) %></td>
-            <td><%= user.email %></td>
-            <td> <% if user.status == true %>
-                <%# trueだったら有効を表示したい %>
-                有効
-                <% else %>
-                解約済み
-                <% end %>
-            <td>
-        </tr>
-    </tbody>
-    <% end %>
-</table>
 <%# カミナリでページ追加 %>
