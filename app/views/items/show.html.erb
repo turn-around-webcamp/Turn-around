@@ -1,9 +1,4 @@
-<div class="row">
 <%= render 'category'  %>
-
-  <div class="col-xs-2">
-    <h1></h1>
-  </div>
   <div class="col-xs-5">
     <%= attachment_image_tag @item, :image, :size => '300x300' %>
   </div>
@@ -17,4 +12,3 @@
     <%= f.submit 'カートに入れる', class: "btn btn-success btn-new-register btn-lg" %>
     </div>
   <% end %>
-</div>

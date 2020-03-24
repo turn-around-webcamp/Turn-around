@@ -1,4 +1,3 @@
-<div class="row">
   <h1>商品　新規登録画面</h1>
   <%= form_with model: @item, url: admin_items_path,  local: true do |f| %>
   <div class="col-xs-4">
@@ -13,7 +12,7 @@
         </tr>
         <tr>
           <th><%= f.label :text ,"商品説明"%></th>
-          <td><%= f.text_area :text, class: "" %></td>
+          <td><%= f.text_area :text, class: "form-control" %></td>
         </tr>
         <tr>
           <th>ジャンル</th>
@@ -21,7 +20,7 @@
         </tr>
         <tr>
           <th><%= f.label :non_tax_price ,"税抜き価格"%></th>
-          <td><%= f.text_field :non_tax_price, class: "" %></td>
+          <td><%= f.text_field :non_tax_price, class: "form-control" %></td>
         </tr>
         <tr>
           <th><%= f.label :status ,"販売ステータス"%></th>
@@ -33,4 +32,3 @@
     <h1><%= f.submit '新規登録', class: "" %></h1>
   </div>
   <% end %>
-</div>

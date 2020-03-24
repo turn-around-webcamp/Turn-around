@@ -5,7 +5,6 @@
     <title>Turnaround</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
@@ -15,7 +14,7 @@
 
       <div class="container">
         <div class="nav navbar-nav navbar-left">
-          <span class="text-muted">LOGO</span>
+          <span class="text-muted">ながのCAKE</span>
         </div>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
@@ -24,7 +23,8 @@
                  <li> <%= link_to "カート", cart_items_path, class: "btn btn-default btn-block" %> </li>
                  <li> <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: "btn btn-default btn-block" %> </li>
               <% elsif admin_signed_in? %>
-                 <li> <%= link_to "商品一覧", items_path, class: "btn btn-default btn-block" %> </li>
+                 <li> <%= link_to "商品新規登録", new_admin_item_path, class: "btn btn-default btn-block" %> </li>
+                 <li> <%= link_to "商品一覧", admin_items_path, class: "btn btn-default btn-block" %> </li>
                  <li> <%= link_to "会員一覧", admin_users_path, class: "btn btn-default btn-block" %> </li>
                  <li> <%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-default btn-block" %> </li>
                  <li> <%= link_to "ジャンル管理", admin_categories_path, class: "btn btn-default btn-block" %> </li>
@@ -39,7 +39,9 @@
 
     </header>
     <div class="container">
-      <%= yield %>
+      <div class="row">
+        <%= yield %>
+      </div>
     </div>
 </body>
 
