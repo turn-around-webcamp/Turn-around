@@ -1,4 +1,3 @@
-  <div class="row align-items-center">
       <div class="col-xs-offset-4 col-xs-4">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group has-icon">
@@ -11,7 +10,6 @@
             <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
             <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
           </div>
-          <%= f.submit "ログイン", class:"btn btn-md btn-block btn-base-1 mt-20" %>
-        <% end %> 
+          <%= f.submit "ログイン", class:"btn btn-md btn-block btn-primary btn-base-1 mt-20" %>
+        <% end %>
       </div>
-  </div>

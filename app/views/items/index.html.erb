@@ -1,9 +1,8 @@
-<div class="row">
 <%= render 'category'  %>
   <div class="col-xs-9 col-xs-offset-1">
     <p><%= "全#{@items.count}件" %></p>
     <% @items.each do |item| %>
-        <div class="image item-image col-xs-2 col-xs-offset-1">
+        <div class="image item-image col-xs-2">
         <%= attachment_image_tag item, :image, :size => '250x250' %>
             <div class="caption">
             <p><%= link_to item.name, item, class: "item_#{item.id}" %></p>
@@ -12,4 +11,6 @@
         </div>
     <% end %>
   </div>
-</div>
+  <div class="col-sx-12">
+
+  </div>
