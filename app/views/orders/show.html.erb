@@ -6,19 +6,19 @@
    <table class="table table-hover table-inverse">
       <tr class="">
           <th class="td-id">注文日</th>
-          <td class="td-name">注文日（内容）</td>
+          <td class="td-name"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
       </tr>
       <tr class="">
           <th class="td-id">配送先</th>
-          <td class="td-name">配送先（内容）</td>
+          <td class="td-name"><%= @order.postal_code %><br><%= @order.name_address %><br><%= @order.address %></td>
       </tr>
       <tr class="">
           <th class="td-id">支払い方法</th>
-          <td class="td-name">支払い方法（内容</td>
+          <td class="td-name"><%= @order.payment_method %></td>
       </tr>
       <tr class="">
           <th class="td-id">ステータス</th>
-          <td class="td-name">ステータス（内容）</td>
+          <td class="td-name"><%= @order.status %></td>
       </tr>
     </table>
   </div>
@@ -27,11 +27,11 @@
     <table class="table table-hover table-inverse">
       <tr class="">
           <th class="td-id">商品合計</th>
-          <td class="td-name">商品合計（内容）</td>
+          <td class="td-name"><%= @order.order_total_volume %></td>
       </tr>
       <tr class="">
           <th class="td-id">配送料</th>
-          <td class="td-name">配送料（内容）</td>
+          <td class="td-name"><%= @order.postage %></td>
       </tr>
       <tr class="">
           <th class="td-id">ご請求額</th>
@@ -51,11 +51,13 @@
         </tr>
       </thead>
       <tbody>
+        <% @order.order_items.each do |order_item| %>
         <tr>
-          <td>商品（内容）</td>
-          <td>単価（税込）（内容）</td>
-          <td>個数（内容）</td>
-          <td>小計（内容）</td>
+          <td><%= order_item.item.name %></td>
+          <td><%= order_item.item.post_tax_price.to_i %></td>
+          <td><%= order_item.volume %></td>
+          <td><%= order_item.item.post_tax_price.to_i*order_item.volume %></td>
+        <% end %>
         </tr>
       </tbody>
       </table>
