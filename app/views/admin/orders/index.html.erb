@@ -20,10 +20,40 @@
 
                     <td><%= order.order_total_volume %></td>
                     <td><%= order.status %></td>
-                    <%# 何も定義していないのに0で入金待ちのステータスがでる %>
+                    <%# order.rbでenum定義されている %>
                 </tr>
                 <% end %>
             </tbody>
         </table>
     </div>
 </div>
+
+
+<%# 商品情報のテーブル%>
+<table class="table table-hover table-inverse">
+    <thead>
+        <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+        </tr>
+    </thead>
+    <% @users.each do |user| %>
+    <tbody>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= link_to user.full_name_japanese, admin_user_path(user.id) %></td>
+            <td><%= user.email %></td>
+            <td> <% if user.status == true %>
+                <%# trueだったら有効を表示したい %>
+                有効
+                <% else %>
+                解約済み
+                <% end %>
+            <td>
+        </tr>
+    </tbody>
+    <% end %>
+</table>
+<%# カミナリでページ追加 %>
