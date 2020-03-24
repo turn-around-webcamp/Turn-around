@@ -71,3 +71,4 @@ gem "paranoia"
 gem 'carrierwave'
 gem 'pry-rails'
 gem 'kaminari'
+gem 'pry-byebug'

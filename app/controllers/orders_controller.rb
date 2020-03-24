@@ -23,14 +23,14 @@ class OrdersController < ApplicationController
        @order.address = address.address
        @order.name_address = address.name_address
     elsif params[:select_address] == "newaddress"
-       @order.valid?
-       @delivery = Delivery.new
-       render :new
     end
+
+     #請求金額の計算式を入れる
   end
 
   def create
 	   @order = Order.new(order_params)
+     #空のインスタンスにenumの値を入れる
      @order.user_id = current_user.id
      @order.save
 	   redirect_to action: :finish
