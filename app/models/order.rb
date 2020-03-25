@@ -7,6 +7,10 @@ class Order < ApplicationRecord
   def order_total_volume
     order_items.sum(:volume)
   end
+
+  def order_total_price
+    orders.sum(:charge)
+  end
 end
 
 
