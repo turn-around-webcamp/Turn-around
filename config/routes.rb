@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 }
   namespace :admin do#↓admin/~ のルートはこの中に作成
     root 'homes#top'
-    resources :orders, only:[:index,:show,:update]
+    resources :orders, only:[:index,:show,:update] do
+      resources :order_items, only:[:update]
+    end
     resources :users, only:[:index,:show,:edit,:update]
     resources :categories, only: [:edit, :create, :index, :update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]

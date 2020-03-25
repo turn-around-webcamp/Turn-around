@@ -5,12 +5,15 @@ class User < ApplicationRecord
   has_many :cart_items
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         def full_name_japanese
-          last_name_japanese+first_name_japanese
-         end
-         def full_name_katakana
-          last_name_katakana+first_name_katakana
-         end
+
+  def full_name_japanese
+  last_name_japanese+first_name_japanese
+  end
+
+  def full_name_katakana
+  last_name_katakana+first_name_katakana
+  end
+
   def total_price #合計金額を定義している
     price = 0
     self.cart_items.each do |cart|
@@ -19,4 +22,5 @@ class User < ApplicationRecord
     end
     return price
   end
+
 end
