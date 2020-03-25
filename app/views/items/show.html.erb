@@ -1,4 +1,11 @@
-<%= render 'category'  %>
+  <div class="col-xs-2">
+    <p>ジャンル検索</p>
+    <% @categories.each do |category| %>
+      <% if category.status == "有効" %>
+      <%= category.name %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="col-xs-5">
     <%= attachment_image_tag @item, :image, :size => '300x300' %>
   </div>
@@ -9,6 +16,6 @@
     <%= form_for(@cart_item, url: item_cart_items_path(@item)) do |f| %>
       <%= f.select :total_volume,(1..10).to_a, {}, class: "form-contril item-show-form-control" %>
       <%= f.hidden_field :item_id, :value => @item.id %>
-    <%= f.submit 'カートに入れる', class: "btn btn-success btn-new-register btn-lg" %>
+      <%= f.submit 'カートに入れる', class: "btn btn-success btn-new-register btn-lg" %>
     </div>
   <% end %>
