@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     resources :orders, only:[:index,:show,:update] do
       resources :order_items, only:[:update]
+      # コントローラーを新しく作り、ルーティング設定
     end
     resources :users, only:[:index,:show,:edit,:update]
     resources :categories, only: [:edit, :create, :index, :update]
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
   delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
 
   resources :orders, only: [:show,:index, :new, :create] do
-    # order_itemも中に入る？postcommentのようなイメージ？
     resources :order_item, only: [:create, :destroy]
   	   collection do
   	      post 'confirm'
