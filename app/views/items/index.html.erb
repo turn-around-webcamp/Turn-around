@@ -1,8 +1,16 @@
-<%= render 'category'  %>
-  <div class="col-xs-9 col-xs-offset-1">
-    <p><%= "全#{@items.count}件" %></p>
+  <h2>商品一覧</h2>
+  <div class="col-xs-2">
+    <p>ジャンル検索</p>
+    <% @categories.each do |category| %>
+    <% if category.status == "有効" %>
+    <%= category.name %>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="col-xs-10">
+    <p><%= "全#{Item.count}件" %></p>
     <% @items.each do |item| %>
-        <div class="image item-image col-xs-2">
+        <div class="image item-image col-xs-3">
         <%= attachment_image_tag item, :image, :size => '250x250' %>
             <div class="caption">
             <p><%= link_to item.name, item, class: "item_#{item.id}" %></p>
@@ -11,6 +19,6 @@
         </div>
     <% end %>
   </div>
-  <div class="col-sx-12">
-
+  <div class="col-sx-12" class="text-center">
+    <%= paginate @items %>
   </div>

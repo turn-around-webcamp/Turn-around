@@ -1,4 +1,6 @@
   <div class="col-xs-2">
     <p>ジャンル検索</p>
-    <!--ジャンル一覧を記載-->
+    <% @itemcategories.each do |category| %>
+    <%= category.name %>
+    <% end %>
   </div>
