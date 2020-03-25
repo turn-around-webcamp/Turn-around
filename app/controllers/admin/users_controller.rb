@@ -5,18 +5,16 @@ class Admin::UsersController < ApplicationController
     def index
         # 自身で退会したユーザーのステータスをindexに反映させたい。
         # @user = User.find(params[:id])
-        # if @user.status == false
         # @user.status = false
         @users = User.with_deleted
-        # end
     end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.with_deleted.find(params[:id])
     end
 
     def edit
-        @user = User.find(params[:id])
+        @user = User.with_deleted.find(params[:id])
     end
 
 
@@ -33,7 +31,6 @@ class Admin::UsersController < ApplicationController
                 # destroyしないと論理削除にならない
                 redirect_to admin_users_path
             else
-                @user = User.find(params[:id])
                 render "edit"
             end
         else
