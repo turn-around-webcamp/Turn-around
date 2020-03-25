@@ -17,7 +17,6 @@ class User < ApplicationRecord
   def total_price #合計金額を定義している
     price = 0
     self.cart_items.each do |cart|
-      puts cart_items[0]
       price += cart.item.post_tax_price*cart.total_volume
     end
     return price

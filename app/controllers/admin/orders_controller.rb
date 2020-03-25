@@ -7,7 +7,6 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @orders = Order.all
     # そのユーザーの注文全部にしたい
   end
 
@@ -23,7 +22,6 @@ class Admin::OrdersController < ApplicationController
 	  redirect_to admin_orders_path
   end
 
-  
 
   private
 

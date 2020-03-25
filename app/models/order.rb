@@ -7,4 +7,13 @@ class Order < ApplicationRecord
   def order_total_volume
     order_items.sum(:volume)
   end
+
+  def get_total_price #何をするかを命名
+    total_price = 0
+    self.order_items.each do |order_item|
+      total_price += order_item.price.to_i * order_item.volume.to_i
+    end
+    return total_price
+  end
+
 end
