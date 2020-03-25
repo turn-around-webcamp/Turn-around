@@ -36,7 +36,7 @@ CartItem.create!(
 Order.create!(
   created_at: 20200323,
   user_id: 1,
-  status: 1,
+  status: 0,
   updated_at: 20200323,
   postage: 800,
   charge: 3000,

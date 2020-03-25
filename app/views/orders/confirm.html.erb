@@ -17,9 +17,9 @@
               <tbody>
                 <tr>
                   <td><%= cart_item.item.name %></td>
-                  <td><%= cart_item.item.post_tax_price %></td>
+                  <td><%= cart_item.item.post_tax_price.to_i %></td>
                   <td><%= cart_item.total_volume %></td>
-                  <td><%= cart_item.item.post_tax_price*cart_item.total_volume %></td>
+                  <td><%= cart_item.item.post_tax_price.to_i*cart_item.total_volume.to_i %></td>
                 </tr>
               </tbody>
               <% end %>
@@ -34,11 +34,11 @@
               </tr>
               <tr class="">
                   <th class="td-id">商品合計</th>
-                  <td class="td-name"><%= current_user.total_price %></td>
+                  <td class="td-name"><%= current_user.total_price.to_i %></td>
               </tr>
               <tr class="">
                   <th class="td-id">請求金額</th>
-                  <td class="td-name"><%= @order.charge %></td>
+                  <td class="td-name"><%= @order.postage + current_user.total_price.to_i %></td>
               </tr>
             </table>
         </div>
