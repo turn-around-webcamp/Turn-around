@@ -31,8 +31,19 @@ class OrdersController < ApplicationController
 	   @order = Order.new(order_params)
      @order.charge = @order.postage + current_user.total_price.to_i
      @order.user_id = current_user.id
-     @order.save(order_params)
-	   redirect_to action: :finish
+
+     current_user.cart_items.each do | cart |
+        @order.order_items.build( item_id: cart.item.id, volume: cart.total_volume, price: cart.item.post_tax_price, status:"着手不可" 
+        )
+     end
+
+     if @order.save
+        current_user.cart_items.destroy_all
+        redirect_to action: :finish
+     else
+      pp @order.errors
+      render :confirm
+     end
   end
 
   def finish
