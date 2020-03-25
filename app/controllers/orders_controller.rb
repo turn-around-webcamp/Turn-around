@@ -24,15 +24,13 @@ class OrdersController < ApplicationController
        @order.name_address = address.name_address
     elsif params[:select_address] == "newaddress"
     end
-
-     #請求金額の計算式を入れる
   end
 
   def create
 	   @order = Order.new(order_params)
-     #空のインスタンスにenumの値を入れる
+     @order.charge = @order.postage + current_user.total_price.to_i
      @order.user_id = current_user.id
-     @order.save
+     @order.save(order_params)
 	   redirect_to action: :finish
   end
 
@@ -41,7 +39,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-     params.require(:order).permit(:charge, :payment_method, :name_address, :address, :postal_code)
+     params.require(:order).permit(:charge, :payment_method, :name_address, :address, :postal_code, :status)
   end
 
   def delivery_params

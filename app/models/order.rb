@@ -8,5 +8,3 @@ class Order < ApplicationRecord
     order_items.sum(:volume)
   end
 end
-
-
