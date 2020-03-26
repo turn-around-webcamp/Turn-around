@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-    #before_action :authenticate_admin!
+    before_action :authenticate_admin!
     # 後ほど追加する（管理者権限）
 
     def index
