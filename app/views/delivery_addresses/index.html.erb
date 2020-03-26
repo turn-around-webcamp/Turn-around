@@ -41,9 +41,10 @@
             <%# これを入れないとidがないと言われUrlGenerationErrorが出る? %>
             <td><%= link_to "編集する", edit_delivery_address_path(deliver), class: "btn-sm btn-success edit_delivery_address_#{deliver.id}" %></td>
             <td><%= link_to "削除する", deliver, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_delivery_address_#{deliver.id}" %></td>
-            <%# 削除まだできない %>
+
             <% end %>
         </tr>
     </tbody>
 </table>
 <% end%>
+ <%= @user.address %>

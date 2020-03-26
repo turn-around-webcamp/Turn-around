@@ -17,12 +17,14 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    # @order.status = false
+    @order_item = @order.order_items.find(params[:id])
     @order.update(order_params)
-	  redirect_to admin_orders_path
+    if  @order.status == "入金確認"
+    @order_item.update(status: "制作待ち")
+	  redirect_to admin_order_path(@order)
   end
 
-
+  end
   private
 
   def order_params
