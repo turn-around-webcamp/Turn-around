@@ -33,8 +33,7 @@ class OrdersController < ApplicationController
      @order.user_id = current_user.id
 
      current_user.cart_items.each do | cart |
-        @order.order_items.build( item_id: cart.item.id, volume: cart.total_volume, price: cart.item.post_tax_price, status:"着手不可" 
-        )
+        @order.order_items.build( item_id: cart.item.id, volume: cart.total_volume, price: cart.item.post_tax_price)
      end
 
      if @order.save
