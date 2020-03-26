@@ -15,3 +15,37 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+a {
+  color:#111;
+}
+
+.full_name {
+  margin-right: 150px;
+  padding-top: 15px
+}
+
+.title {
+  margin-top :5px;
+  font-size: 20px;
+}
+
+.about {
+  margin-bottom: 180px;
+}
+
+.item_table {
+  margin-right: 30px
+}
+
+.item-show {
+  padding-top: 50px;
+}
+
+.postage-price {
+  padding-top: 30px;
+}
+
+.price-tag {
+  color:#B12704;
+}
