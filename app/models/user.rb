@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   acts_as_paranoid
-  has_many :orders
-  has_many :delivery_addresses
-  has_many :cart_items
+  has_many :orders, dependent: :destroy
+  has_many :delivery_addresses, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

@@ -16,7 +16,7 @@
         <tr class="">
             <th class="td-id">注文ステータス</th>
             <%= form_with(model: @order,local: true, url: {action: 'update'}) do |form| %>
-            <td><%= form.select :status, [["入金待ち"],["入金確認"],["制作中"],["発送準備中"],["発送済み"]] %></td>
+            <td><%= form.select :status, [["入金待ち", "入金待ち"], ["入金確認", "入金確認"], ["制作中", "制作中"], ["発送準備中", "発送準備中"], ["発送済み", "発送済み"]] %></td>
             <div class="actions">
                 <td> <button class="btn btn-info" type="submit">更新</button></td>
             </div>
