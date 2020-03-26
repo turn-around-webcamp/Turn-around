@@ -17,8 +17,7 @@ User.create!(
 
 Category.create!(
   name: 'ケーキ',
-  status: '無効
-  ',
+  status: false,
   )
 
 Item.create!(
