@@ -1,15 +1,8 @@
-  <div class="col-xs-2">
-    <p>ジャンル検索</p>
-    <% @categories.each do |category| %>
-      <% if category.status == "有効" %>
-      <%= category.name %>
-      <% end %>
-    <% end %>
+<%= render 'items/category', categories: @categories %>
+  <div class="col-xs-5 col-xs-offset-1 item-show">
+    <%= attachment_image_tag @item, :image, :size => '450x400' %>
   </div>
-  <div class="col-xs-5">
-    <%= attachment_image_tag @item, :image, :size => '300x300' %>
-  </div>
-  <div class="col-xs-5">
+  <div class="col-xs-4 item-show">
     <h2><%= @item.name %></h2>
     <p><%= @item.text %><p>
     <p>¥<%= @item.post_tax_price.to_i %></p>
