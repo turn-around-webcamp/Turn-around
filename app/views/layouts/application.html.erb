@@ -14,7 +14,7 @@
 
       <div class="container">
         <div class="nav navbar-nav navbar-left">
-          <span class="text-muted">ながのCAKE</span>
+          <%= link_to "ながのCAKE", root_path(current_user.id), class: "" %>
         </div>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
