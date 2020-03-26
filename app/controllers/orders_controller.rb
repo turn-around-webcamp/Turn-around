@@ -36,12 +36,14 @@ class OrdersController < ApplicationController
         @order.order_items.build( item_id: cart.item.id, volume: cart.total_volume, price: cart.item.post_tax_price)
      end
 
+      DeliveryAddress.create( user_id: current_user.id, postal_code: @order.postal_code, address: @order.address, name_address: @order.name_address
+        )
+
      if @order.save
         current_user.cart_items.destroy_all
         redirect_to action: :finish
      else
-      pp @order.errors
-      render :confirm
+        render :confirm
      end
   end
 
