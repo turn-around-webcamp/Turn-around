@@ -17,14 +17,16 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order_item = @order.order_items.find(params[:id])
+    @order_items = @order.order_items
     @order.update(order_params)
     if  @order.status == "入金確認"
-    @order_item.update_all(status: "制作待ち")
+        @order_items.each do |item|
+         item.update(status: "制作完了")
+        end
+    end
 	  redirect_to admin_order_path(@order)
   end
 
-  end
   private
 
   def order_params
