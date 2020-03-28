@@ -1,46 +1,57 @@
 <h2>マイページ</h2>
-<table>
-    <tr>
-        <th>登録情報</th>
-        <th><%= link_to '編集する', edit_user_path(@user), class: "btn btn-primary" %></th>
-        <th><%= link_to 'パスワードを変更する', edit_user_path(@user), class: "btn btn-primary" %></th>
-        <%# パスワードを変更するのリンク先はこのままで大丈夫だそうです %>
-    </tr>
-    <tr>
-        <th>氏名</th>
-        <th><%= @user.full_name_japanese %></th>
-    </tr>
-    <tr>
-        <th>カナ</th>
-        <th><%= @user.full_name_katakana %></th>
-    </tr>
-    <tr>
-        <th>郵便番号</th>
-        <th><%= @user.postal_code %></th>
-    </tr>
-    <tr>
-        <th>住所</th>
-        <th><%= @user.address %></th>
-    </tr>
-    <tr>
-        <th>電話番号</th>
-        <th><%= @user.tel %></th>
-    </tr>
-    <tr>
-        <th>メールアドレス</th>
-        <th><%= @user.email %></th>
-    </tr>
+<div class="col-xs-12">
+    <table>
+        <tr>
+            <th >登録情報</th>
+            <th><%= link_to '編集する', edit_user_path(@user), class: "btn btn-primary" %></th>
+            <th><%= link_to 'パスワードを変更する', edit_user_path(@user), class: "btn btn-primary" %></th>
+            <%# パスワードを変更するのリンク先はこのままで大丈夫だそうです %>
+        </tr>
+    </table>
+</div>
 
-    <tr>
-        <th>配送先</th>
-        <th>
-            <%= link_to "一覧をみる", delivery_addresses_path, class: "btn btn-primary" %>
-        </th>
-    </tr>
-    <tr>
-        <th>注文履歴</th>
-        <th>
-            <%= link_to "一覧をみる", orders_path, class: "btn btn-primary" %>
-        </th>
-    </tr>
-</table>
+<div class="col-xs-12">
+    <table class="table table-bordered">
+        <tr>
+            <th class="active col-xs-3">氏名</th>
+            <th class="col-xs-9"><%= @user.full_name_japanese %></th>
+        </tr>
+        <tr>
+            <th class="active">カナ</th>
+            <th><%= @user.full_name_katakana %></th>
+        </tr>
+        <tr>
+            <th class="active">郵便番号</th>
+            <th><%= @user.postal_code %></th>
+        </tr>
+        <tr>
+            <th class="active">住所</th>
+            <th><%= @user.address %></th>
+        </tr>
+        <tr>
+            <th class="active">電話番号</th>
+            <th><%= @user.tel %></th>
+        </tr>
+        <tr>
+            <th class="active">メールアドレス</th>
+            <th><%= @user.email %></th>
+        </tr>
+    </table>
+</div>
+
+<div class="col-xs-12 ">
+    <table>
+        <tr>
+            <th>配送先</th>
+            <th>
+                <%= link_to "一覧をみる", delivery_addresses_path, class: "btn btn-primary" %>
+            </th>
+        </tr>
+        <tr>
+            <th>注文履歴</th>
+            <th>
+                <%= link_to "一覧をみる", orders_path, class: "btn btn-primary" %>
+            </th>
+        </tr>
+    </table>
+</div>

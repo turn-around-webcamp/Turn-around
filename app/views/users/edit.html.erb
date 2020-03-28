@@ -48,13 +48,16 @@
             <%= f.text_field :tel %>
         </th>
     </tr>
-
+</table>
     <tr>
+  <div class="col-xs-2 col-xs-offset-2">
         <th><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></th>
         <% end %>
-        <th><%= link_to "退会する", leave_user_path(@user) %></th>
+</div>
+  <div class="col-xs-2 col-xs-offset-2">
+        <th><%= link_to "退会する", leave_user_path(@user), class: "btn btn-danger" %></th>
     </tr>
-</table>
+</div>
 
 
 
