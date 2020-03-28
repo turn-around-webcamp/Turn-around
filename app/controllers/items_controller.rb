@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all.order(created_at: :desc) #ページネーション設定
-    @items = Item.all.page(params[:page]).per(8) #ページネーション設定
+    @items = Item.all.page(params[:page]).per(9) #ページネーション設定
     @categories = Category.all
   end
   def show
