@@ -5,11 +5,11 @@ class Admin::OrderItemsController < ApplicationController
         # binding.pry
         order_item.update(order_item_params)
 
-        if  order_item.status == "制作中"
-            order.update(status: "制作中")
+        if  order_item.status == "製作中"
+            order.update(status: "製作中")
             redirect_to admin_order_path(order)
         end
-       if order.order_items.all? { |item| item.status == "制作完了"}
+       if order.order_items.all? { |item| item.status == "製作完了"}
             # 全てが..制作完了になったら、↓にしたい。
             order.update(status: "発送準備中")
             redirect_to admin_order_path(order)

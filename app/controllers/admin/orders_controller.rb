@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-  #before_action :authenticate_admin!
+  before_action :authenticate_admin!
   def index
     @orders = Order.all.order(created_at: :desc)
     @orders = Order.all.page(params[:page]).per(15)
@@ -21,7 +21,7 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
     if  @order.status == "入金確認"
         @order_items.each do |item|
-         item.update(status: "制作完了")
+         item.update(status: "製作待ち")
         end
     end
 	  redirect_to admin_order_path(@order)
