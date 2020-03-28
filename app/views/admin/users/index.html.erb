@@ -1,26 +1,28 @@
-<table class="table table-hover table-inverse">
-    <thead>
-        <tr>
-            <th>会員ID</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
-        </tr>
-    </thead>
+<h2>会員一覧画面</h2>
+<div class="col-xs-12">
+    <table class="table">
+        <thead>
+            <tr class="active">
+                <th>会員ID</th>
+                <th>氏名</th>
+                <th>メールアドレス</th>
+                <th>ステータス</th>
+            </tr>
+        </thead>
     <% @users.each do |user| %>
-    <tbody>
-        <tr>
-            <td><%= user.id %></td>
-            <td><%= link_to user.full_name_japanese, admin_user_path(user.id) %></td>
-            <td><%= user.email %></td>
-            <td> <% if user.status == true %>
-                <%# trueだったら有効を表示したい %>
-                有効
-                <% else %>
-                解約済み
-                <% end %>
-            <td>
-        </tr>
-    </tbody>
+        <tbody>
+            <tr>
+                <td><%= user.id %></td>
+                <td class="under"><%= link_to user.full_name_japanese, admin_user_path(user.id) %></td>
+                <td><%= user.email %></td>
+                <td><% if user.status == true %>
+                        有効
+                    <% else %>
+                        解約済み
+                    <% end %>
+                </td>
+            </tr>
+        </tbody>
     <% end %>
-</table>
+    </table>
+</div>
