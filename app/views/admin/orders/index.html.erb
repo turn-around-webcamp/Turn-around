@@ -1,6 +1,6 @@
 <h1>注文一覧画面</h1>
     <div class="col-xs-10">
-        <table class="table table-hover table-inverse">
+        <table class="table">
             <thead>
                 <tr>
                     <th>購入日時</th>
@@ -13,7 +13,7 @@
             <tbody>
                 <% @orders.each do |order| %>
                 <tr>
-                    <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order) %>
+                    <td class="under"><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order) %>
                         <!--会員userの注文orderの購入日時created_at　リンクで詳細画面に遷移する-->
                     </td>
                     <td><%= order.user.full_name_japanese %></td>
