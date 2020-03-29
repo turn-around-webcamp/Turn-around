@@ -7,39 +7,32 @@
       <table>
         <tr>
           <th><%= f.label :名前 %></th>
-          <th>（性）</th>
-          <td><%= f.text_field :last_name_japanese %></td>
-          <th>（名）</th>
-          <td><%= f.text_field :first_name_japanese %></td>
+          <th> (性)　 <%= f.text_field :last_name_japanese %> 　　(名)　 <%= f.text_field :first_name_japanese %></th>
         </tr>
 
         <tr>
           <th><%= f.label :フリガナ %></th>
-          <th>（セイ）</th>
-          <td><%= f.text_field :last_name_katakana %></td>
-          <th>（メイ）</th>
-          <td><%= f.text_field :first_name_katakana %></td>
+          <th> (セイ) <%= f.text_field :last_name_katakana %> 　　(メイ) <%= f.text_field :first_name_katakana %></th>
         </tr>
 
         <tr>
           <th><%= f.label :メールアドレス %></th>
-          <th></th>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          <th> 　　　<%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
         </tr>
 
         <tr>
-          <t><%= f.label :郵便番号（ハイフンなし）%></td>
-          <td><%= f.text_field :postal_code %></td>
+          <th><%= f.label :郵便番号（ハイフンなし）%></th>
+          <th> 　　　<%= f.text_field :postal_code %></th>
         </tr>
 
         <tr>
           <td><%= f.label :住所 %></td>
-          <td><%= f.text_field :address %></td>
+          <th> 　　　<%= f.text_field :address, :size => "50*50"  %></th>
         </tr>
 
         <tr>
           <td><%= f.label :電話番号（ハイフンなし）%></td>
-          <td><%= f.text_field :tel %></td>
+          <th> 　　　<%= f.text_field :tel %></th>
         </tr>
 
         <tr>
@@ -47,18 +40,18 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %>
-          <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+          <th> 　　　<%= f.password_field :password, autocomplete: "new-password" %></th>
         </tr>
 
         <tr>
           <td><%= f.label :パスワード（確認用） %></td>
-          <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          <th> 　　　<%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
         </tr>
       </table>
     </div>
 
-  <div class="actions">
-    <%= f.submit "新規登録", class: "btn btn-success" %>
+  <div class="actions, col-xs-offset-3 col-xs-9">
+    <br><button class="btn btn-success btn-lg" type="submit">新規登録</button>
   </div>
 <% end %>
 

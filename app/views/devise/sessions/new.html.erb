@@ -2,21 +2,27 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <table>
+      <tr>
+        <th><%= f.label :メールアドレス %></th>
+        <td> <%= f.email_field :email, autofocus: true, autocomplete: "email", :size => "60*60" %></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :パスワード %></th>
+        <td> <%= f.password_field :password, autocomplete: "current-password", :size => "60*60" %></td>
+      </tr>
+    </table>
   </div>
 
-  <div class="field">
-    <%= f.label :パスワード %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="col-xs-offset-3 col-xs-9">
+    <%= link_to "=>パスワードを忘れた方はこちら",new_user_password_path %>
   </div>
 
-  <%= link_to "=>パスワードを忘れた方はこちら",new_user_password_path %>
-
-  <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-info" %>
+  <div class="actions, col-xs-offset-2 col-xs-11">
+    <br><button class="btn btn-primary btn-lg" type="submit">ログイン</button>
   </div>
 <% end %>
 
-<h3>登録がお済ではない方</h3>
+<br><h3>登録がお済ではない方</h3>
 <%= link_to "こちら",new_user_registration_path %> から新規登録を行ってください。
