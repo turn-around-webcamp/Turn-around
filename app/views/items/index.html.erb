@@ -6,7 +6,7 @@
         <%= attachment_image_tag item, :image, :size => '230x200' %>
             <div class="caption">
             <h4><%= link_to item.name, item, class: "item_#{item.id}" %></h4>
-            <p class="price-tag"><%= "¥#{item.non_tax_price}" %></p>
+            <h4 class="price-tag"><%= "¥#{item.non_tax_price}" %></h4>
             </div>
         </div>
     <% end %>
